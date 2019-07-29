@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'LoopingCounter';
+  active: boolean;
+
+  start() {
+    this.active = true;
+  }
+
+  stop() {
+    this.active = false;
+  }
 }
