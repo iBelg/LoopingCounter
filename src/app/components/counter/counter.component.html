@@ -1,12 +1,11 @@
-<div>
-  <mat-form-field>
-    <input matInput [(ngModel)]="milliseconds" [disabled]="isActive" placeholder="Milliseconds">
-  </mat-form-field>
-  <pre>{{displayTime}}</pre>
-  <mat-form-field>
-    <input matInput [(ngModel)]="playSoundTimes" [disabled]="isActive" placeholder="How many pops">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="playSoundDelay" [disabled]="isActive" placeholder="Delay between pops">
-  </mat-form-field>
+<div class="lc-counter-container">
+  <ng-container *ngIf="!isActive;then displayInputTpl else displayTimeTpl"></ng-container>
+  <ng-template #displayInputTpl>
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="milliseconds" [disabled]="isActive" placeholder="Milliseconds">
+    </mat-form-field>
+  </ng-template>
+  <ng-template #displayTimeTpl>
+    <div class="display-time-container">{{displayTime}}</div>
+  </ng-template>
 </div>

@@ -1,0 +1,10 @@
+.lc-counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.display-time-container {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Arial Black", sans-serif;
+}

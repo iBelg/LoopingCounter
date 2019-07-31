@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {CounterModule} from './components/counter/counter.module';
 import {MaterialModule} from './material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ComponentsModule} from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    CounterModule
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

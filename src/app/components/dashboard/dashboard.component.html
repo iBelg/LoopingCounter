@@ -1,0 +1,15 @@
+<div class="lc-dashboard-container">
+  <mat-card class="countdown-container">
+    <lc-counter [active]="active" [soundConfig]="soundConfig"></lc-counter>
+    <div class="countdown-container-buttons">
+      <button mat-raised-button color="primary" (click)="start()"><mat-icon>play_arrow</mat-icon> Start</button>
+      <button mat-raised-button color="primary" (click)="stop()"><mat-icon>stop</mat-icon> Stop</button>
+    </div>
+    <mat-expansion-panel class="lc-dashboard-sound-config">
+      <mat-expansion-panel-header>Configure sound</mat-expansion-panel-header>
+      <div>
+        <lc-sound-panel [(soundConfig)]="soundConfig"></lc-sound-panel>
+      </div>
+    </mat-expansion-panel>
+  </mat-card>
+</div>

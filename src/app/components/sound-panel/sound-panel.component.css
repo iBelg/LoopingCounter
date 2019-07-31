@@ -1,0 +1,12 @@
+.lc-sound-panel-container {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.lc-config-form {
+
+}
+
+.lc-config-form > * {
+  width: 100%;
+}

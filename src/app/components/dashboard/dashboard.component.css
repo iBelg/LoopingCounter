@@ -1,0 +1,28 @@
+.lc-dashboard-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 5px;
+}
+
+.countdown-container {
+  min-width: 400px;
+  max-width: 100%;
+}
+
+.countdown-container-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.countdown-container-buttons button {
+  flex-grow: 1;
+}
+
+.countdown-container-buttons button:first-child {
+  margin-right: 10px;
+}
+
+.lc-dashboard-sound-config {
+  margin-top: 10px;
+}
+

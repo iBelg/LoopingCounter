@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {SoundService} from '../../services/sound.service';
+import {SoundConfig} from '../../services/models/sound-config';
 
 @Component({
   selector: 'lc-counter',
@@ -11,11 +12,11 @@ export class CounterComponent {
   private _elapsedMs: number;
   private _active: boolean;
   private _intervalId: number;
-  private readonly _intervalMs = 1;
+  private readonly _intervalMs = 5;
   private startPerformance;
 
-  playSoundTimes = 2;
-  playSoundDelay = 120;
+  @Input()
+  soundConfig: SoundConfig;
 
   constructor(private _sound: SoundService) {
   }
@@ -26,7 +27,7 @@ export class CounterComponent {
     }
     this.reset();
     this.startPerformance = performance.now();
-    this._intervalId = setInterval(() => this.countdown(), this._intervalMs);
+    this._intervalId = window.setInterval(() => this.countdown(), this._intervalMs);
   }
 
   stop() {
@@ -47,15 +48,11 @@ export class CounterComponent {
   }
 
   countdownReached() {
-    this._sound.playMultiple(this._sound.basicSound, this.playSoundTimes, this.playSoundDelay);
+    this._sound.playMultiple(() => this._sound.configuredSound(this.soundConfig), 2, 120);
   }
 
   get displayTime() {
-    return (this._milliseconds - this._elapsedMs) || 0;
-  }
-
-  get progressBarPercentage() {
-    return (this.displayTime / this._milliseconds) * 100;
+    return Math.round(this._milliseconds - this._elapsedMs) || 0;
   }
 
   get milliseconds() {

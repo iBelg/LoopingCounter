@@ -22,9 +22,12 @@
     "@angular/platform-browser-dynamic": "^8.1.3",
     "@angular/router": "^8.1.3",
     "core-js": "^2.5.4",
+    "hammerjs": "^2.0.8",
     "lodash": "^4.17.15",
     "rxjs": "~6.5.2",
+    "tone": "^13.4.9",
     "tslib": "^1.9.0",
+    "xsound": "^2.13.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -35,6 +38,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "@types/tone": "git+https://github.com/Tonejs/TypeScript.git",
     "codelyzer": "^5.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

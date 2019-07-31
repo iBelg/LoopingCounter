@@ -1,0 +1,14 @@
+<div class="lc-sound-panel-container">
+  <form class="lc-config-form" [formGroup]="configForm">
+    <mat-slider min="32" max="16744" thumbLabel [displayWith]="formThumbLabel" tickInterval="10" formControlName="frequency"></mat-slider>
+    <mat-form-field>
+      <mat-label>Oscillator Type</mat-label>
+      <mat-select formControlName="oscillatorType">
+        <mat-option *ngFor="let type of oscillatorTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-slider min="-1000" max="1000" thumbLabel [displayWith]="formThumbLabel" tickInterval="1" formControlName="detune"></mat-slider>
+  </form>
+</div>
