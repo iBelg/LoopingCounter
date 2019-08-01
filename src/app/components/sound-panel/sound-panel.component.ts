@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {SoundConfig} from '../../services/models/sound-config';
+import {SettingsService} from '../../services/settings.service';
 
 @Component({
   selector: 'lc-sound-panel',
@@ -19,7 +20,6 @@ export class SoundPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._soundConfig = new SoundConfig();
     this._configForm = this._fb.group({
       frequency: new FormControl(this._soundConfig.frequency),
       oscillatorType: new FormControl(this._soundConfig.oscillatorType),
@@ -52,5 +52,8 @@ export class SoundPanelComponent implements OnInit {
   @Input()
   set soundConfig(config: SoundConfig) {
     this._soundConfig = config;
+    if (this._configForm) {
+      this._configForm.patchValue(config as any);
+    }
   }
 }
