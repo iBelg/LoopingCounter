@@ -1,6 +1,8 @@
 <div class="lc-sound-panel-container">
   <form class="lc-config-form" [formGroup]="configForm">
-    <mat-slider min="32" max="16744" thumbLabel [displayWith]="formThumbLabel" tickInterval="10" formControlName="frequency"></mat-slider>
+    <mat-form-field>
+      <input placeholder="Frequency" matInput type="number" [min]="minFrequency" [max]="maxFrequency" formControlName="frequency">
+    </mat-form-field>
     <mat-form-field>
       <mat-label>Oscillator Type</mat-label>
       <mat-select formControlName="oscillatorType">
@@ -9,6 +11,14 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-slider min="-1000" max="1000" thumbLabel [displayWith]="formThumbLabel" tickInterval="1" formControlName="detune"></mat-slider>
+    <mat-form-field>
+      <input placeholder="detune" matInput type="number" formControlName="detune">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ramp down value" formControlName="rampDownValue">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ramp down time" formControlName="rampDownTime">
+    </mat-form-field>
   </form>
 </div>

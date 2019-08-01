@@ -7,7 +7,7 @@
     </div>
     <mat-expansion-panel class="lc-dashboard-sound-config">
       <mat-expansion-panel-header>Configure sound</mat-expansion-panel-header>
-      <div>
+      <div class="lc-dashboard-sound-config-container">
         <lc-sound-panel [(soundConfig)]="soundConfig"></lc-sound-panel>
         <div class="countdown-container-buttons">
           <button mat-raised-button (click)="saveSoundConfig()"><mat-icon>save</mat-icon> Save</button>

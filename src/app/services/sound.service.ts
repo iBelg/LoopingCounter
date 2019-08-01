@@ -1,5 +1,13 @@
 import {Injectable} from '@angular/core';
 import {SoundConfig} from './models/sound-config';
+import {
+  frequencyMaximumValue,
+  frequencyMinimumValue,
+  rampDownTimeMaximum,
+  rampDownTimeMinimum,
+  rampDownValueMaximum,
+  rampDownValueMinimum
+} from './constants';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +35,34 @@ export class SoundService {
     osc.connect(gain);
     gain.connect(this._audioContext.destination);
     osc.type = config.oscillatorType;
-    osc.frequency.value = config.frequency;
+
+    if (config.frequency < frequencyMinimumValue) {
+      osc.frequency.value = frequencyMinimumValue;
+    } else if (config.frequency > frequencyMaximumValue) {
+      osc.frequency.value = frequencyMaximumValue;
+    } else {
+      osc.frequency.value = config.frequency;
+    }
+
     osc.detune.value = config.detune;
     osc.start(0);
-    gain.gain.exponentialRampToValueAtTime(config.rampDownValue, this._audioContext.currentTime + config.rampDownTime);
-    osc.stop(this._audioContext.currentTime + config.rampDownTime + 0.5);
+
+    let rampDownValue = config.rampDownValue;
+    if (rampDownValue > rampDownValueMaximum) {
+      rampDownValue = rampDownValueMaximum;
+    } else if (rampDownValue < rampDownValueMinimum) {
+      rampDownValue = rampDownValueMinimum;
+    }
+
+    let rampDownTime = config.rampDownTime;
+    if (rampDownTime > rampDownTimeMaximum) {
+      rampDownTime = rampDownTimeMaximum;
+    } else if (rampDownTime < rampDownTimeMinimum) {
+      rampDownTime = rampDownTimeMinimum;
+    }
+
+    gain.gain.exponentialRampToValueAtTime(rampDownValue, this._audioContext.currentTime + rampDownTime);
+    osc.stop(this._audioContext.currentTime + rampDownTime + 0.5);
   }
 
   public playMultiple(soundFn, times, delay) {

@@ -5,11 +5,12 @@
 }
 
 .countdown-container {
-  min-width: 400px;
+  min-width: 300px;
   max-width: 100%;
 }
 
 .countdown-container-buttons {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -26,3 +27,8 @@
   margin-top: 10px;
 }
 
+.lc-dashboard-sound-config-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

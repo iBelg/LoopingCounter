@@ -4,9 +4,27 @@
 }
 
 .lc-config-form {
-
+  max-width: 150px;
 }
 
 .lc-config-form > * {
   width: 100%;
+}
+
+.lc-config-form > .slider-group {
+  display: flex;
+  align-items: center;
+}
+
+.lc-config-form > .slider-group > mat-slider {
+  flex: 1;
+}
+
+.lc-config-form > .slider-group > input {
+  max-width: 60px;
+}
+
+.lc-config-form > .slider-group > mat-label {
+  color: darkgray;
+  font-size: 0.9em;
 }

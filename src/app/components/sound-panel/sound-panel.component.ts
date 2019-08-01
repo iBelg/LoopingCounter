@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {SoundConfig} from '../../services/models/sound-config';
-import {SettingsService} from '../../services/settings.service';
+import {frequencyMaximumValue, frequencyMinimumValue} from '../../services/constants';
 
 @Component({
   selector: 'lc-sound-panel',
@@ -12,6 +12,9 @@ export class SoundPanelComponent implements OnInit {
   private _configForm: FormGroup;
   private _soundConfig: SoundConfig;
   readonly oscillatorTypes = ['sine', 'square', 'sawtooth', 'triangle'];
+
+  readonly maxFrequency = frequencyMaximumValue;
+  readonly minFrequency = frequencyMinimumValue
 
   @Output()
   soundConfigChange: EventEmitter<SoundConfig> = new EventEmitter<SoundConfig>();
