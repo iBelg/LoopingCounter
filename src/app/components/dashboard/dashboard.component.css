@@ -32,3 +32,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.section-sequence-panel {
+  margin-top: 10px;
+  display: none;
+}

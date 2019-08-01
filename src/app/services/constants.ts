@@ -1,4 +1,7 @@
+// Save keys
 export const soundConfigSaveKey = 'SOUND_CONFIG';
+export const sequenceSaveKey = 'SEQUENCE';
+
 export const frequencyMaximumValue = 17000;
 export const frequencyMinimumValue = 32;
 export const rampDownValueMinimum = 0.00001;

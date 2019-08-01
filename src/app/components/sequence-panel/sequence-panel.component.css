@@ -1,0 +1,21 @@
+.sequence-panel {
+  display: flex;
+}
+
+.sequence-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  margin: 5px;
+}
+
+.sequence-item.sequence-placeholder {
+  border: 1px dashed black;
+}
