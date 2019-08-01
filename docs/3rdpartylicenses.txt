@@ -99,8 +99,6 @@ THE SOFTWARE.
 
 @angular/material/select
 
-@angular/material/slider
-
 @angular/platform-browser
 MIT
 

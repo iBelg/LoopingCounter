@@ -1,4 +1,4 @@
-export interface SequenceItem {
+export class SequenceItem {
   id?: number;
   text: string;
   order: number;
